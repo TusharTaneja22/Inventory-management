@@ -1,4 +1,10 @@
-import { SET_PRODUCTS, SET_STATS, EDIT_PRODUCT, DELETE_PRODUCT, DISABLE_PRODUCT } from '../actions/actions';
+import {
+  SET_PRODUCTS,
+  SET_STATS,
+  EDIT_PRODUCT,
+  DELETE_PRODUCT,
+  DISABLE_PRODUCT,
+} from "../actions/actions";
 
 const initialState = {
   products: [],
@@ -26,7 +32,9 @@ const reducer = (state = initialState, action) => {
         products: updatedProducts,
       };
     case DELETE_PRODUCT:
-      const filteredProducts = state.products.filter((_, index) => index !== action.payload);
+      const filteredProducts = state.products.filter(
+        (product, index) => index !== action.payload
+      );
       return {
         ...state,
         products: filteredProducts,

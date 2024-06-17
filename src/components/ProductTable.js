@@ -29,7 +29,6 @@ const ProductTable = ({ isAdmin }) => {
   };
 
   const handleSaveEdit = (index, updatedProduct) => {
-    console.log("updated>>", updatedProduct);
     dispatch(editProduct(index, updatedProduct));
     setEditingProduct(null);
   };
