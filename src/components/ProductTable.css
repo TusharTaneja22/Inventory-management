@@ -1,0 +1,92 @@
+.product-table {
+    width: 98%;
+    max-width: 98%;
+    background-color: #282c34;
+    border-radius: 10px;
+}
+
+.product-table th,
+.product-table td {
+    padding: 8px;
+}
+
+.table-value {
+    color: white;
+}
+
+.table-value-disabled {
+    color: gray;
+}
+
+.product-table th {
+    text-align: left;
+    color: darkgreen;
+}
+
+.btn {
+    padding: 5px 10px;
+    margin: 2px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn.edit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.btn.delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+.btn.view-btn {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+}
+
+.btn.block-btn {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+}
+
+
+.disabled-row {
+    color: gray;
+}
+
+.disabled-row .table-value {
+    color: white;
+}
+
+.enabled-row .table-value {
+    color: gray;
+}
+
+.icon-btn {
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 5px;
+    color: #282c34;
+}
+
+.icon-btn.disabled {
+    cursor: not-allowed;
+    color: gray;
+}
+
+.icon-btn-enabled-delete {
+    color: red;
+}
+
+.icon-btn-enabled-edit {
+    color: green;
+}
+
+.icon-btn-visible {
+    color: purple;
+}

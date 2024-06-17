@@ -1,25 +1,65 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import Header from './components/Header';
+import InventoryStats from './components/InventoryStats';
+import ProductTable from './components/ProductTable';
+import { setProducts, setStats } from './actions/actions';
 import './App.css';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const toggle = () => {
+    setIsAdmin(!isAdmin);
+  };
+
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get('https://dev-0tf0hinghgjl39z.api.raw-labs.com/inventory');
+      const data = response.data;
+      dispatch(setProducts(data));
+      updateStats(data);
+    } catch (error) {
+      console.error('Error fetching the data', error);
+    }
+  };
+
+  const updateStats = (updatedProducts) => {
+    const totalProducts = updatedProducts.length;
+    const totalValue = updatedProducts.reduce((acc, product) => acc + parseFloat(product.value.replace('$', '')), 0);
+    const outOfStock = updatedProducts.filter((product) => product.quantity === 0).length;
+    const categories = new Set(updatedProducts.map((product) => product.category)).size;
+
+    dispatch(
+      setStats([
+        { label: 'Total Product', value: totalProducts },
+        { label: 'Total Store Value', value: `$${totalValue}` },
+        { label: 'Out of Stocks', value: outOfStock },
+        { label: 'No of Categories', value: categories },
+      ])
+    );
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  useEffect(() => {
+    updateStats(products);
+  }, [products]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header isAdmin={isAdmin} toggle={toggle} />
+      <div className="content">
+        <InventoryStats />
+        <ProductTable isAdmin={isAdmin} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
