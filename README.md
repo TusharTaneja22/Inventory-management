@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Inventory State Management
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an Inventory Management App designed to calculate and display total product count, total store value, out-of-stock items, and the number of categories in the inventory. The app provides an admin view for managing the products, including actions like deleting, editing, and disabling products, and a user view with restricted actions.
 
-## Available Scripts
+# Features
 
-In the project directory, you can run:
+**Top 4 Widgets**
+**Total Product**: Displays the total number of products in the inventory.
+**Total Store Value**: Shows the total value of all products in the store.
+**Out of Stock**: Indicates the number of products that are out of stock.
+**Number of Categories**: Displays the number of unique categories in the inventory.
 
-### `npm start`
+**Product Table**
+Lists all products in a tabular format along with action icons for editing, deleting, and disabling products.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Admin View**
+**Delete Icon**: Clicking the delete icon will delete the entire row.
+**Edit Icon**: Clicking the edit icon opens a popup where you can edit the product fields. The updated values are reflected in the table, and the top 4 widget values are updated automatically. Updates are handled locally without an API for update.
+**Eye Icon**: Clicking the eye icon disables the entire row, and the edit button is disabled.
+**Dynamic Updates**: Upon disabling or deletion of a product, the top 4 widget values for total product count, total store value, out-of-stock items, and number of categories are decremented accordingly.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**User View**
+All action buttons are disabled for users.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Redux** is used for state management.
